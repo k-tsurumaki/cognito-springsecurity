@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: classpath:auth-config-${spring.profiles.active}.properties
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          clientId: ${auth.clientId}
+          clientSecret: ${auth.clientSecret}
+          jwk-set-uri: ${auth.jwk-set-uri}
+          issuer-uri: ${auth.issuer-uri}
+          redirect-uri: ${auth.redirect-uri}
+
+auth:
+  cognitoUri: ${auth.cognitoUri}
+
+cognito:
+  userPoolId: ${auth.userPoolId}
+  region: ${auth.region}
